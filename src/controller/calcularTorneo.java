@@ -37,7 +37,8 @@ public class calcularTorneo {
 	}
 	
 	
-	//Método que calcula el torneo masculino
+	//Método que calcula el torneo femenino
+	//Funcionamiento identico al funcionamiento de torneo masculino
 	public void calcularTorneoFem(HashSet<jugadorFemenino> listaFem) {
 		ArrayList<jugadorFemenino> jugadoresRondaAct = new ArrayList<>(listaFem);
 		ArrayList<jugadorFemenino> jugadoresRondaSig = new ArrayList<>();

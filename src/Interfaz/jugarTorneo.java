@@ -29,17 +29,17 @@ public class jugarTorneo {
 			System.out.println("Ingrese el apellido: ");
 			auxMasc.setApellido(lectura.next());
 			System.out.println("Ingrese el nivel de hab: ");
-			auxMasc.setNivelHab(lectura.nextInt());
+			auxMasc.setNivelHab(lectura.nextInt());				//Aca me falta comprobar que este entre 0 y 100
 			System.out.println("Ingrese el nivel de fuerza: ");
-			auxMasc.setFuerza(lectura.nextInt());
+			auxMasc.setFuerza(lectura.nextInt());				//Aca me falta comprobar que este entre 0 y 100
 			System.out.println("Ingrese el nivel de velocidad: ");
-			auxMasc.setVelocidad(lectura.nextInt());
+			auxMasc.setVelocidad(lectura.nextInt());			//Aca me falta comprobar que este entre 0 y 100
 			//Agrego el nuevo jugador a la lista masculina
 			listaMasculina.add(auxMasc);
 			auxMasc = new jugadorMasculino();
 			System.out.println("¿Desea agregar otro jugador? ");
 			System.out.println("Ingrese y/si ó n/no");
-		}while((lectura.next().equals("y")));
+		}while((lectura.next().equals("y"))|| cantMasc<2);					
 			
 			
 		do {
@@ -52,19 +52,25 @@ public class jugarTorneo {
 			System.out.println("Ingrese el apellido: ");
 			auxFem.setApellido(lectura.next());
 			System.out.println("Ingrese el nivel de hab: ");
-			auxFem.setNivelHab(lectura.nextInt());
+			auxFem.setNivelHab(lectura.nextInt());					//Aca me falta comprobar que este entre 0 y 100
 			System.out.println("Ingrese el nivel de fuerza: ");
-			auxFem.settReaccion(lectura.nextInt());
+			auxFem.settReaccion(lectura.nextInt());					//Aca me falta comprobar que este entre 0 y 100
 			//Agrego el nuevo jugador a la lista femenino
 			listaFemenina.add(auxFem);
 			auxFem = new jugadorFemenino();
 			System.out.println("¿Desea agregar otro jugador? ");
-			System.out.println("Ingrese y/si ó n/no");
-		}while((lectura.next().equals("y")));	
+			System.out.println("Ingrese y/si ó n/no");				
+		}while((lectura.next().equals("y")) || cantFem<2);	
 		
 		lectura.close();
 		
+		System.out.println("***********************");
+		System.out.println("   Torneo Masculino  ");
+		System.out.println("***********************");
 		calcularTorneo.calcularTorneoMasc(listaMasculina);
+		System.out.println("***********************");
+		System.out.println("   Torneo Femenino   ");
+		System.out.println("***********************");
 		calcularTorneo.calcularTorneoFem(listaFemenina);
 	}
 
