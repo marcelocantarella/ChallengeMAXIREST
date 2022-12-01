@@ -56,8 +56,10 @@ public class calcularTorneo {
 	
 	//Este método calcula el ganador de un partido entre dos participantes masculinos
 	private jugadorMasculino juagadaMasc(jugadorMasculino j1, jugadorMasculino j2){
-		int puntaje1 = (j1.getFuerza() + j1.getNivelHab() + j1.getVelocidad()) * (j1.getSuerte()/100);
-		int puntaje2 = (j2.getFuerza() + j2.getNivelHab() + j2.getVelocidad()) * (j2.getSuerte()/100);
+		//La determinación del puntaje del jugador para el partido se realizo pensandando que el factor de suerte
+		//afecte tanto en forma positiva, negativa o no afectar si la misma tiene valor medio de 50.
+		int puntaje1 = (j1.getFuerza() + j1.getNivelHab() + j1.getVelocidad()) * (j1.getSuerte()/50);
+		int puntaje2 = (j2.getFuerza() + j2.getNivelHab() + j2.getVelocidad()) * (j2.getSuerte()/50);
 		if (puntaje1>puntaje2) {
 			mostrarResultados.mostrarResultadoPartido(j1, j2, j1);
 			return j1;
@@ -70,8 +72,10 @@ public class calcularTorneo {
 	
 	//Este método calcula el ganador de un partido entre dos participantes femeninos
 	private jugadorFemenino juagadaFem(jugadorFemenino j1, jugadorFemenino j2){
-		int puntaje1 = (j1.getNivelHab() + j1.gettReaccion()) * (j1.getSuerte()/100);
-		int puntaje2 = (j2.getNivelHab() + j2.gettReaccion()) * (j2.getSuerte()/100);
+		//La determinación del puntaje del jugador para el partido se realizo pensandando que el factor de suerte
+		//afecte tanto en forma positiva, negativa o no afectar si la misma tiene valor medio de 50.
+		int puntaje1 = (j1.getNivelHab() + j1.gettReaccion()) * (j1.getSuerte()/50);
+		int puntaje2 = (j2.getNivelHab() + j2.gettReaccion()) * (j2.getSuerte()/50);
 		if (puntaje1>puntaje2) {
 			mostrarResultados.mostrarResultadoPartido(j1, j2, j1);
 			return j1;

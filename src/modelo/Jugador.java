@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.Objects;
 import java.util.Random;
 
 
@@ -11,8 +12,6 @@ public abstract class Jugador{
 	String Apellido;
 	int nivelHab; //Valores del 1 a 100
 	int suerte; //Valores del 1 a 100
-	
-	
 	
 	public String getNombre() {
 		return Nombre;
@@ -49,12 +48,32 @@ public abstract class Jugador{
 	
 	// Este metodo genera un valor de suerte para el jugador
 	protected int determinarSuerte() {
-		int max = 100;
-		int min = 1;
+		int max = 99;
+		int min = 0;
 		
 		Random r = new Random();
 		return r.nextInt((max - min) + 1) + min;
 	
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(Apellido, Nombre, nivelHab);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Jugador other = (Jugador) obj;
+		return Objects.equals(Apellido, other.Apellido) && Objects.equals(Nombre, other.Nombre)
+				&& nivelHab == other.nivelHab;
+	}
+
+
 	
 }

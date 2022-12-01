@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.Objects;
 
 //Esta clase es una calse padre con los atributos comunes de los tipos de jugadores
 //Ademas esta clase determina la suerte del jugador dentro del constructor
@@ -36,7 +37,5 @@ public class jugadorMasculino extends Jugador{
 		this.velocidad = velocidad;
 	}
 
-
-	
 	
 	}

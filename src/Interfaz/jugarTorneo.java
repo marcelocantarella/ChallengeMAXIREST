@@ -1,5 +1,6 @@
 package Interfaz;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Scanner;
 
 import controller.calcularTorneo;
@@ -20,12 +21,15 @@ public class jugarTorneo {
 		//Creo el objeto que leera del teclado
 		Scanner lectura = new Scanner (System.in);
 		
+		
+		
+		
 		System.out.println("Bienvenido al torneo de tenis");
 		System.out.println("Vamos a proceder a cargar los jugadores masculinos");
 		do {
 			//Pido todos los parametros del nuevo jugador masculino
 			cantMasc++;
-			System.out.println("******Nueva jugador******");
+			System.out.println("******Nuevo jugador******");
 			System.out.println("Jugador num: " + cantMasc);
 			System.out.println("Ingrese el nombre: ");
 			auxMasc.setNombre(lectura.next());
@@ -41,7 +45,11 @@ public class jugarTorneo {
 			System.out.println("[valores entre 0 y 100]");
 			auxMasc.setVelocidad(comp.controloCualidad(lectura.nextInt()));			
 			//Agrego el nuevo jugador a la lista masculina
-			listaMasculina.add(auxMasc);
+			//Si existe otra jugadora con el mismo nombre y habilidad, no se agrega
+			if(!listaMasculina.add(auxMasc)) {
+				cantMasc--;
+				System.out.println("Este jugador ya existe.");
+			}
 			auxMasc = new jugadorMasculino();
 			if(!((cantMasc%2) > 0)){
 				System.out.println("¿Desea agregar otros 2 jugadores? ");
@@ -53,7 +61,7 @@ public class jugarTorneo {
 		do {
 			//Pido todos los parametros del nuevo jugador femenino
 			cantFem++;
-			System.out.println("******Nueva jugadora******");
+			System.out.println("******Nuevo jugadora******");
 			System.out.println("Jugador num: " + cantFem);
 			System.out.println("Ingrese el nombre: ");
 			auxFem.setNombre(lectura.next());
@@ -66,7 +74,11 @@ public class jugarTorneo {
 			System.out.println("[valores entre 0 y 100]");
 			auxFem.settReaccion(comp.controloCualidad(lectura.nextInt()));					
 			//Agrego el nuevo jugador a la lista femenino
-			listaFemenina.add(auxFem);
+			//Si existe otra jugadora con el mismo nombre y habilidad, no se agrega
+			if(!listaFemenina.add(auxFem)) {
+				cantFem--;
+				System.out.println("Esta jugadora ya existe.");
+			}
 			auxFem = new jugadorFemenino();
 			if(!((cantFem%2) > 0)) {
 				System.out.println("¿Desea agregar otros 2 jugadoras? ");
@@ -90,5 +102,6 @@ public class jugarTorneo {
 		System.out.println("***********************");
 		calcularTorneo.calcularTorneoFem(listaFemenina);
 	}
+	
 
 }
