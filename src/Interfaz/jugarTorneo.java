@@ -36,6 +36,7 @@ public class jugarTorneo {
 			auxMasc.setVelocidad(lectura.nextInt());
 			//Agrego el nuevo jugador a la lista masculina
 			listaMasculina.add(auxMasc);
+			auxMasc = new jugadorMasculino();
 			System.out.println("¿Desea agregar otro jugador? ");
 			System.out.println("Ingrese y/si ó n/no");
 		}while((lectura.next().equals("y")));
@@ -56,6 +57,7 @@ public class jugarTorneo {
 			auxFem.settReaccion(lectura.nextInt());
 			//Agrego el nuevo jugador a la lista femenino
 			listaFemenina.add(auxFem);
+			auxFem = new jugadorFemenino();
 			System.out.println("¿Desea agregar otro jugador? ");
 			System.out.println("Ingrese y/si ó n/no");
 		}while((lectura.next().equals("y")));	

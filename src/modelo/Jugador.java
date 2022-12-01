@@ -9,8 +9,8 @@ public abstract class Jugador{
 
 	String Nombre;
 	String Apellido;
-	int nivelHab;
-	int suerte;
+	int nivelHab; //Valores del 1 a 100
+	int suerte; //Valores del 1 a 100
 	
 	
 	

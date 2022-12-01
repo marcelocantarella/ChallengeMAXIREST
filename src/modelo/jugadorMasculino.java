@@ -1,5 +1,8 @@
 package modelo;
 
+
+//Esta clase es una calse padre con los atributos comunes de los tipos de jugadores
+//Ademas esta clase determina la suerte del jugador dentro del constructor
 public class jugadorMasculino extends Jugador{
 
 	int fuerza; //Valores del 1 a 100

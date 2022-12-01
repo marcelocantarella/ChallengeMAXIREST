@@ -4,22 +4,26 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 import Interfaz.mostrarResultados;
-import modelo.Jugador;
 import modelo.jugadorFemenino;
 import modelo.jugadorMasculino;
 
 public class calcularTorneo {
-	
+	//Instancio la clase que muestra los resultados
 	mostrarResultados mostrarResultados = new mostrarResultados();
 
 	public calcularTorneo() {
 		super();
 	}
 
+	//Método que calcula el torneo masculino
 	public void calcularTorneoMasc(HashSet<jugadorMasculino> listaMasc) {
 		ArrayList<jugadorMasculino> jugadoresRondaAct = new ArrayList<>(listaMasc);
 		ArrayList<jugadorMasculino> jugadoresRondaSig = new ArrayList<>();
 
+		//En este punto tengo la lista actual de jugadores que me pasaron y si hay mas de 1
+		//jugador procedo a calcular los partidos de a cuerdo al orden con el que se anotaron los jugadores
+		//Los jugadores ganadores de cada partido se copian a la lista jugadores en ronda siguiente
+		//A medida que transcurren los partidos se borran ambos jugadores de la lista actual
 		while(jugadoresRondaAct.size()>1) {
 			while(jugadoresRondaAct.size()>=2) {
 				jugadoresRondaSig.add(juagadaMasc(jugadoresRondaAct.get(0),jugadoresRondaAct.get(1)));
@@ -32,6 +36,8 @@ public class calcularTorneo {
 		mostrarResultados.mostrarResultadoTorneo(jugadoresRondaAct.get(0)); 
 	}
 	
+	
+	//Método que calcula el torneo masculino
 	public void calcularTorneoFem(HashSet<jugadorFemenino> listaFem) {
 		ArrayList<jugadorFemenino> jugadoresRondaAct = new ArrayList<>(listaFem);
 		ArrayList<jugadorFemenino> jugadoresRondaSig = new ArrayList<>();
