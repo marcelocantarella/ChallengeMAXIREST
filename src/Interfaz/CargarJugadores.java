@@ -6,6 +6,7 @@ import controller.CtrlCarac;
 import modelo.Jugador;
 import modelo.JugadorFemenino;
 import modelo.JugadorMasculino;
+import modelo.TipoJugador;
 
 class CargarJugadores {
 
@@ -19,28 +20,30 @@ class CargarJugadores {
 		super();
 	}
 	
-	public Jugador cargarNuevoJugador(int numJugIng, boolean tipoJugador) {
+	public Jugador cargarNuevoJugador(int numJugIng, TipoJugador tipo) {
 		auxMasc = new JugadorMasculino();
 		auxFem = new JugadorFemenino();
 		
-		//Pido todos los parametros del nuevo jugador masculino
+		//Pido todos los parametros del nuevo jugador
 		System.out.println("******Nuevo jugador******");
 		System.out.println("Jugador num: " + numJugIng);
-		if (tipoJugador == true) {
-			pedirNombre(auxMasc);
-			pedirApellido(auxMasc);
-			pedirNivelHab(auxMasc);
-			pedirNivelFuerza(auxMasc);
-			pedirVelocidad(auxMasc);
-			return auxMasc;
-		} else {
-			pedirNombre(auxFem);
-			pedirApellido(auxFem);
-			pedirNivelHab(auxFem);
-			pedirTiempoReac(auxFem);
-			return auxFem;
-		}
-		
+		switch(tipo) {
+			case MASCULINO:
+				pedirNombre(auxMasc);
+				pedirApellido(auxMasc);
+				pedirNivelHab(auxMasc);
+				pedirNivelFuerza(auxMasc);
+				pedirVelocidad(auxMasc);
+				return auxMasc;
+			case FEMENINO:
+				pedirNombre(auxFem);
+				pedirApellido(auxFem);
+				pedirNivelHab(auxFem);
+				pedirTiempoReac(auxFem);
+				return auxFem;
+			default:
+				return auxMasc;
+		}		
 	}
 	
 	

@@ -18,7 +18,7 @@ public class CtrlCarac {
 	}
 	
 	public boolean controloCadena(String cadena) {
-		if (cadena.contains(("[0-9]+"))) {
+		if (cadena.matches(("[0-9]+"))) {
 			System.out.println("El campo no puede contener números. Vuelva a ingresarlo.");
 			return false;
 		}
