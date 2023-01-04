@@ -8,14 +8,14 @@ public class MostrarResultados {
 		super();
 	}
 	
-	public void mostrarEncabezado(int cantMasc, boolean tipo) {
+	public void mostrarEncabezado(int cant, boolean tipo) {
 	//Muestro torneo masculino y calculo el resultado
 			System.out.println("***********************");
 			if (tipo) 
 				System.out.println("   Torneo Masculino  ");
 			else
 				System.out.println("   Torneo Femenino  ");
-			System.out.println("Cantidad de participantes: " + cantMasc);
+			System.out.println("Cantidad de participantes: " + cant);
 			System.out.println("***********************");
 	}
 			

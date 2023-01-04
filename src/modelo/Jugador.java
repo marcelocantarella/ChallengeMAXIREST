@@ -12,6 +12,11 @@ public abstract class Jugador{
 	String Apellido;
 	int nivelHab; //Valores del 1 a 100
 	int suerte; //Valores del 1 a 100
+	int puntaje; //Puntaje de jugador de acuerdo a las habilidades
+	
+	public int getPuntaje() {
+		return puntaje;
+	}
 	
 	public String getNombre() {
 		return Nombre;

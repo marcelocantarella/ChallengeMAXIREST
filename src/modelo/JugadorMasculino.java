@@ -12,7 +12,13 @@ public class JugadorMasculino extends Jugador{
 	public JugadorMasculino() {
 		super();
 		super.setSuerte(super.determinarSuerte());
+		calculaPuntaje();
 	}
+	
+	private void calculaPuntaje() {
+		super.puntaje = (fuerza + super.getNivelHab() + velocidad) * (super.getSuerte()/50);
+	}
+
 
 	public JugadorMasculino(int fuerza, int velocidad) {
 		super();
