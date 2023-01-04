@@ -8,9 +8,6 @@ import modelo.JugadorFemenino;
 import modelo.JugadorMasculino;
 
 class AltaJugadores {
-
-	JugadorMasculino auxMasc = new JugadorMasculino();
-	JugadorFemenino auxFem = new JugadorFemenino();
 	Scanner lectura = new Scanner (System.in);
 	CtrlCarac control = new CtrlCarac();
 	String auxTyped;
@@ -25,7 +22,7 @@ class AltaJugadores {
 		
 		//Pido todos los parametros del nuevo jugador
 		System.out.println("******Nuevo jugador******");
-		System.out.println("Jugador num: " + (cantMasc + cantFem));
+		System.out.println("Jugador num: " + (cantMasc + cantFem + 1));
 		System.out.println("¿Desea agregar un jugador masculino o femenino? ");
 		System.out.println("Ingrese 'm'/masculino ó 'f'/femenino");
 		switch(lectura.next()) {
@@ -36,7 +33,8 @@ class AltaJugadores {
 				cantFem++;
 				return new JugadorFemenino(pedirNombre(), pedirApellido(), pedirNivelHab(), pedirTiempoReac());
 			default:
-				return auxMasc;
+				System.out.println("Comando no valido.");
+				return new JugadorMasculino();
 		}		
 	}
 	
@@ -48,11 +46,10 @@ class AltaJugadores {
 			auxTyped = lectura.next();
 			if (control.controloCadena(auxTyped)) {
 				valido = true;
-				return auxTyped;
-			}
-			System.out.println("Ingrese el nombre nuevamente: ");
+			}else 
+				System.out.println("Ingrese el nombre nuevamente: ");
 		}
-		return "nn";
+		return auxTyped;
 	}
 	
 	private String pedirApellido() {
@@ -63,11 +60,11 @@ class AltaJugadores {
 		while(!valido) {
 			auxTyped = lectura.next();
 			if (control.controloCadena(auxTyped)) {
-				return auxTyped;
-			}
-			System.out.println("Ingrese el apellido nuevamente: ");
+				valido = true;
+			} else
+				System.out.println("Ingrese el apellido nuevamente: ");
 		}
-		return "nn";
+		return auxTyped;
 	}
 	
 	private int pedirNivelHab() {
