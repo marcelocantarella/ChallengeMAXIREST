@@ -4,17 +4,17 @@ import java.util.Objects;
 
 //Esta clase es una calse padre con los atributos comunes de los tipos de jugadores
 //Ademas esta clase determina la suerte del jugador dentro del constructor
-public class jugadorMasculino extends Jugador{
+public class JugadorMasculino extends Jugador{
 
 	int fuerza; //Valores del 1 a 100
 	int velocidad; //Valores del 1 a 100
 	
-	public jugadorMasculino() {
+	public JugadorMasculino() {
 		super();
 		super.setSuerte(super.determinarSuerte());
 	}
 
-	public jugadorMasculino(int fuerza, int velocidad) {
+	public JugadorMasculino(int fuerza, int velocidad) {
 		super();
 		this.fuerza = fuerza;
 		this.velocidad = velocidad;

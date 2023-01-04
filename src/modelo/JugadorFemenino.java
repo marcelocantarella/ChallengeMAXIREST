@@ -1,15 +1,15 @@
 package modelo;
 
-public class jugadorFemenino extends Jugador{
+public class JugadorFemenino extends Jugador{
 	
 	int tReaccion; //Tiempo de reaccion en segundos
 	
-	public jugadorFemenino() {
+	public JugadorFemenino() {
 		super();
 		super.setSuerte(super.determinarSuerte());
 	}
 
-	public jugadorFemenino(int tReaccion) {
+	public JugadorFemenino(int tReaccion) {
 		super();
 		this.tReaccion = tReaccion;
 		super.setSuerte(super.determinarSuerte());

@@ -2,9 +2,9 @@ package Interfaz;
 
 import modelo.Jugador;
 
-public class mostrarResultados {
+public class MostrarResultados {
 
-	public mostrarResultados() {
+	public MostrarResultados() {
 		super();
 	}
 	

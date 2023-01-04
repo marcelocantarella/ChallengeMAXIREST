@@ -1,8 +1,8 @@
 package controller;
 
-public class casteoCarac {
+public class CtrlCarac {
 
-	public casteoCarac() {
+	public CtrlCarac() {
 		super();
 	}
 	
@@ -15,6 +15,15 @@ public class casteoCarac {
 			return 0;
 		else
 			return cualidad;
+	}
+	
+	public boolean controloCadena(String cadena) {
+		if (cadena.contains(("[0-9]+"))) {
+			System.out.println("El campo no puede contener números. Vuelva a ingresarlo.");
+			return false;
+		}
+		else
+			return true;
 	}
 	
 }
