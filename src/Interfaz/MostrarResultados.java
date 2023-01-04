@@ -8,6 +8,17 @@ public class MostrarResultados {
 		super();
 	}
 	
+	public void mostrarEncabezado(int cantMasc, boolean tipo) {
+	//Muestro torneo masculino y calculo el resultado
+			System.out.println("***********************");
+			if (tipo) 
+				System.out.println("   Torneo Masculino  ");
+			else
+				System.out.println("   Torneo Femenino  ");
+			System.out.println("Cantidad de participantes: " + cantMasc);
+			System.out.println("***********************");
+	}
+			
 	public void mostrarResultadoTorneo(Jugador j1) {
 		System.out.println("***********************");
 		System.out.println("Torneo ganado por jugador " + j1.getNombre() + " " + j1.getApellido());

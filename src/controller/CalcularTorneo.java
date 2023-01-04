@@ -20,6 +20,7 @@ public class CalcularTorneo {
 		ArrayList<JugadorMasculino> jugadoresRondaAct = new ArrayList<>(listaMasc);
 		ArrayList<JugadorMasculino> jugadoresRondaSig = new ArrayList<>();
 
+		mostrarResultados.mostrarEncabezado(listaMasc.size());
 		//En este punto tengo la lista actual de jugadores que me pasaron y si hay mas de 1
 		//jugador procedo a calcular los partidos de a cuerdo al orden con el que se anotaron los jugadores
 		//Los jugadores ganadores de cada partido se copian a la lista jugadores en ronda siguiente
