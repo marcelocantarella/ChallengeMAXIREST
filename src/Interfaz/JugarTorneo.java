@@ -1,21 +1,16 @@
 package Interfaz;
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Scanner;
 import controller.CalcularTorneo;
-import controller.CtrlCarac;
 import modelo.Jugador;
-import modelo.JugadorFemenino;
-import modelo.JugadorMasculino;
-import modelo.TipoJugador;
+
+
 
 public class JugarTorneo {
 	
-		static int cantMasc = 0;
-		static int cantFem = 0;
 		static HashSet<Jugador> listaMasculina = new HashSet<>();
 		static HashSet<Jugador> listaFemenina = new HashSet<>();	
-		static CargarJugadores carga = new CargarJugadores();
+		static AltaJugadores carga = new AltaJugadores();
 		static Scanner lectura = new Scanner (System.in);
 		
 		
@@ -28,20 +23,10 @@ public class JugarTorneo {
 		System.out.println("Vamos a proceder a cargar los jugadores masculinos");
 		
 		do {
-			System.out.println("¿Desea agregar un jugador masculino o femenino? ");
-			System.out.println("Ingrese 'm'/masculino ó 'f'/femenino");
-			switch(lectura.next()) {
-				case "m":
-					agregoJugadorMasc();
-					break;
-				case"f":
-					agregoJugadorFem();
-					break;
-				default:	
-					System.out.println("El comando ingresado no es valido");
-					break;
-			}
-			if (!((cantMasc%2) > 0) && !((cantFem%2) > 0)){
+			
+			agregoJugador();
+			
+			if (!((listaMasculina.size()%2) > 0) && !((listaFemenina.size()%2) > 0)){
 				System.out.println("¿Desea agregar otros 2 jugadores? ");
 				System.out.println("Ingrese 'y'/si ó 'n'/no");
 				flagPidoOtroJugador = false;
@@ -59,24 +44,22 @@ public class JugarTorneo {
 		
 	}
 	
-	static private void agregoJugadorMasc() {
-		//Agrego el nuevo jugador a la lista masculina
-		//Si existe otra jugadora con el mismo nombre y habilidad, no se agrega
-		cantMasc++;
-		if(!listaMasculina.add(carga.cargarNuevoJugador(cantMasc, TipoJugador.valueOf("MASCULINO")) )) {
-			cantMasc--;
-			System.out.println("Este jugador ya existe.");
+	static private void agregoJugador() {
+		Jugador auxJugador = carga.crearJugador();
+		
+		if (auxJugador.getClass().getCanonicalName().equals("modelo.JugadorFemenino")) {
+			if(!listaMasculina.add(auxJugador)) {
+				System.out.println("Este jugador ya existe.");
+			}else
+				System.out.println("Este jugador femenino agregado.");
+		}else if (auxJugador.getClass().getCanonicalName().equals("modelo.JugadorMasculino")) {
+			if(!listaFemenina.add(auxJugador)) {
+				System.out.println("Esta jugadora ya existe.");
+			}
+			else
+				System.out.println("Este jugador masculino agregado.");
 		}
 	}
 	
-	static private void agregoJugadorFem() {
-		//Agrego el nuevo jugador a la lista femenino
-		//Si existe otra jugadora con el mismo nombre y habilidad, no se agrega
-		cantFem++;
-		if(!listaFemenina.add(carga.cargarNuevoJugador(cantFem, TipoJugador.valueOf("FEMENINO")))) {
-			cantFem--;
-			System.out.println("Esta jugadora ya existe.");
-		}
-	}
 
 }

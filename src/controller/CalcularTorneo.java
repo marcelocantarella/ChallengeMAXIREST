@@ -5,8 +5,6 @@ import java.util.HashSet;
 
 import Interfaz.MostrarResultados;
 import modelo.Jugador;
-import modelo.JugadorFemenino;
-import modelo.JugadorMasculino;
 
 public class CalcularTorneo {
 	//Instancio la clase que muestra los resultados

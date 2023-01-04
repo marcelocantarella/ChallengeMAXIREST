@@ -6,98 +6,94 @@ import controller.CtrlCarac;
 import modelo.Jugador;
 import modelo.JugadorFemenino;
 import modelo.JugadorMasculino;
-import modelo.TipoJugador;
 
-class CargarJugadores {
+class AltaJugadores {
 
 	JugadorMasculino auxMasc = new JugadorMasculino();
 	JugadorFemenino auxFem = new JugadorFemenino();
 	Scanner lectura = new Scanner (System.in);
 	CtrlCarac control = new CtrlCarac();
 	String auxTyped;
+	int cantMasc = 0;
+	int cantFem = 0;
 	
-	public CargarJugadores() {
+	public AltaJugadores() {
 		super();
 	}
 	
-	public Jugador cargarNuevoJugador(int numJugIng, TipoJugador tipo) {
-		auxMasc = new JugadorMasculino();
-		auxFem = new JugadorFemenino();
+	public Jugador crearJugador(){
 		
 		//Pido todos los parametros del nuevo jugador
 		System.out.println("******Nuevo jugador******");
-		System.out.println("Jugador num: " + numJugIng);
-		switch(tipo) {
-			case MASCULINO:
-				pedirNombre(auxMasc);
-				pedirApellido(auxMasc);
-				pedirNivelHab(auxMasc);
-				pedirNivelFuerza(auxMasc);
-				pedirVelocidad(auxMasc);
-				return auxMasc;
-			case FEMENINO:
-				pedirNombre(auxFem);
-				pedirApellido(auxFem);
-				pedirNivelHab(auxFem);
-				pedirTiempoReac(auxFem);
-				return auxFem;
+		System.out.println("Jugador num: " + (cantMasc + cantFem));
+		System.out.println("¿Desea agregar un jugador masculino o femenino? ");
+		System.out.println("Ingrese 'm'/masculino ó 'f'/femenino");
+		switch(lectura.next()) {
+			case "m":
+				cantMasc++;
+				return new JugadorMasculino(pedirNombre(), pedirApellido(), pedirNivelHab(), pedirNivelFuerza(), pedirVelocidad());
+			case "f":
+				cantFem++;
+				return new JugadorFemenino(pedirNombre(), pedirApellido(), pedirNivelHab(), pedirTiempoReac());
 			default:
 				return auxMasc;
 		}		
 	}
 	
-	
-	private void pedirNombre(Jugador auxJug) {
+	private String pedirNombre() {
 		boolean valido = false;
+		System.out.println("Ingrese el nombre del jugador: ");
 		//Este método pide y valida el nombre del jugador. De ser necesario lo vuelve a solicitar
 		while(!valido) {
-			System.out.println("Ingrese el nombre: ");
 			auxTyped = lectura.next();
 			if (control.controloCadena(auxTyped)) {
-				auxJug.setNombre(auxTyped);
 				valido = true;
+				return auxTyped;
 			}
+			System.out.println("Ingrese el nombre nuevamente: ");
 		}
+		return "nn";
 	}
 	
-	private void pedirApellido(Jugador auxJug) {
+	private String pedirApellido() {
 		boolean valido = false;
+		
+		System.out.println("Ingrese el apellido del jugador: ");
 		//Este método pide y valida el nombre del jugador. De ser necesario lo vuelve a solicitar
 		while(!valido) {
-			System.out.println("Ingrese el apellido: ");
 			auxTyped = lectura.next();
 			if (control.controloCadena(auxTyped)) {
-				auxJug.setNombre(auxTyped);
-				valido = true;
+				return auxTyped;
 			}
+			System.out.println("Ingrese el apellido nuevamente: ");
 		}
+		return "nn";
 	}
 	
-	private void pedirNivelHab(Jugador auxJug) {
+	private int pedirNivelHab() {
 		System.out.println("Ingrese el nivel de hab: ");
 		System.out.println("[valores entre 0 y 100]");
-		auxJug.setNivelHab(control.controloCualidad(lectura.nextInt()));		
+		return control.controloCualidad(lectura.nextInt());		
 	}
 
-	private void pedirNivelFuerza(JugadorMasculino auxJug) {
+	private int pedirNivelFuerza() {
 		System.out.println("Ingrese el nivel de fuerza: ");
 		System.out.println("[valores entre 0 y 100]");
-		auxJug.setFuerza(control.controloCualidad(lectura.nextInt()));		
+		return control.controloCualidad(lectura.nextInt());		
 	}
 	
 	
-	private void pedirVelocidad(JugadorMasculino auxJug) {
+	private int pedirVelocidad() {
 		System.out.println("Ingrese el nivel de velocidad: ");
 		System.out.println("[valores entre 0 y 100]");
-		auxJug.setVelocidad(control.controloCualidad(lectura.nextInt()));				
+		return control.controloCualidad(lectura.nextInt());				
 	}
 	
 	
-	private void pedirTiempoReac(JugadorFemenino auxJug) {
+	private int pedirTiempoReac() {
 		System.out.println("Ingrese el tiempo de reacción: ");
 		System.out.println("[valores entre 0 y 100]");
-		auxJug.settReaccion(control.controloCualidad(lectura.nextInt()));		
+		return control.controloCualidad(lectura.nextInt());		
 	}
-	
 	
 }

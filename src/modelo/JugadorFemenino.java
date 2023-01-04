@@ -8,6 +8,15 @@ public class JugadorFemenino extends Jugador{
 	public JugadorFemenino() {
 		super();
 		super.setSuerte(super.determinarSuerte());
+	}
+	
+	public JugadorFemenino(String nombre, String apellido, int nivHab, int tReac) {
+		super();
+		super.Nombre = nombre;
+		super.Apellido = apellido;
+		super.nivelHab = nivHab;
+		this.tReaccion = tReac;
+		super.setSuerte(super.determinarSuerte());
 		calculaPuntaje();
 	}
 	
