@@ -14,6 +14,9 @@ public abstract class Jugador{
 	int suerte; //Valores del 1 a 100
 	int puntaje; //Puntaje de jugador de acuerdo a las habilidades
 	
+
+	protected abstract void calculaPuntaje(); 
+	
 	public int getPuntaje() {
 		return puntaje;
 	}

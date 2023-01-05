@@ -47,9 +47,9 @@ public class JugarTorneo {
 			mostrarResultados.mostrarEncabezado(listaFemenina.size(), false);
 			calcularTorneo.calcularTorneo(listaFemenina);
 		}else
-			System.out.println("No hubo torneo femenino");
-		
+			System.out.println("No hubo torneo femenino");		
 	}
+	
 	
 	static private void agregoJugador() {
 		Jugador auxJugador = altaJugad.crearJugador();

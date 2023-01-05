@@ -24,7 +24,8 @@ public class JugadorMasculino extends Jugador{
 		calculaPuntaje();
 	}
 	
-	private void calculaPuntaje() {
+	@Override
+	protected void calculaPuntaje() {
 		super.puntaje = (fuerza + super.getNivelHab() + velocidad) * (super.getSuerte()/50);
 	}
 

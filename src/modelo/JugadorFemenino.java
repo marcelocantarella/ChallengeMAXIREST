@@ -20,7 +20,8 @@ public class JugadorFemenino extends Jugador{
 		calculaPuntaje();
 	}
 	
-	private void calculaPuntaje() {
+	@Override
+	protected void calculaPuntaje() {
 		super.puntaje = (tReaccion + super.getNivelHab()) * (super.getSuerte()/50);
 	}
 
